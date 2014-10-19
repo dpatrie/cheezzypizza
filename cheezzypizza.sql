@@ -41,9 +41,9 @@ CREATE TABLE IF NOT EXISTS `customers` (
 CREATE TABLE IF NOT EXISTS `pizzas` (
   `id_pizza` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `id_customer` int(10) unsigned NOT NULL,
-  `has_tomato_sauce` bit(1) NOT NULL,
-  `has_cheese` bit(1) NOT NULL,
-  `has_pepperoni` bit(1) NOT NULL,
+  `has_tomato_sauce` tinyint(1) NOT NULL DEFAULT 0,
+  `has_cheese` tinyint(1) NOT NULL DEFAULT 0,
+  `has_pepperoni` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id_pizza`),
   KEY `id_customer` (`id_customer`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;

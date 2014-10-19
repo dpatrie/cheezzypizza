@@ -1,10 +1,10 @@
 <?php
-require '../vendor/autoload.php';
+error_reporting(E_ALL | E_STRICT);
+date_default_timezone_set('America/Montreal');
 
-$app = new \Slim\Slim();
+define('ROOT', dirname(__DIR__) . '/');
+define('ENV', (strpos($_SERVER['HTTP_HOST'], '.local') === false) ? 'production' : 'development');
 
-$app->get('/hello/:name', function ($name) {
-    echo "Hello, $name";
-});
-
+require ROOT . 'vendor/autoload.php';
+$app = require_once ROOT . 'app/init.php';
 $app->run();

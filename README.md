@@ -8,14 +8,14 @@ Write a pizza order form backed with a relational database. As an extra, provide
 
 Front end will consist of one route:
 
-- /orders/
+- /orders
 
-This route will be serviced by a rest web service. The presentation will be handled by a twitter bootstrap template.
+This route will be serviced by a web service. The presentation will be handled by a twitter bootstrap template.
 
 The rest web service will consists of two endpoints:
 
-- /customers/
-- /pizzas/
+- /customers
+- /pizzas
 
 ##Database structure
 
@@ -45,7 +45,9 @@ I haven't been doing a lot of PHP lately and I wanted something small that peopl
 - Unit tests. I don't know if PHPUnit is still the norm theses days.
 - More validations.
 - Endpoint security.
-- Auditing of the data
+- Config security...no password in the repo.
+- DB security. Would not use the root user :).
+- Auditing of the data (created, updated, deleted, etc...)
 - A Golang port of the web service backed up by MongoDB so I could fool around with the [mgo driver](https://labix.org/mgo)
 - Doing a many to many relationship for the pizzas and the toppings...to remove the sadness :). Database structure would go as such:
 
