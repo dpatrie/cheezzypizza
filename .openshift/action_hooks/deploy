@@ -1,0 +1,8 @@
+#!/bin/bash
+cd $OPENSHIFT_REPO_DIR
+rm -fr vendors/ composer
+curl -sS https://getcomposer.org/installer | /usr/bin/php -- --filename=composer
+/usr/bin/php composer install
+
+
+
