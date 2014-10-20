@@ -25,13 +25,13 @@ The rest web service will consists of two endpoints:
 
 ##Database structure
 
-customers   | pizzas
-----------------------------
-id          | id
-name        | id_customer
-            | has_tomato_sauce
-            | has_cheese
-            | has_pepperoni
+| customers  | pizzas           |
+| -----------|------------------|
+| id         | id               |
+| name       | id_customer      |
+|            | has_tomato_sauce |
+|            | has_cheese       |
+|            | has_pepperoni    |
 
 
 ##Technology used
@@ -41,7 +41,7 @@ name        | id_customer
 - [Slim](http://www.slimframework.com/)
 - [RedBean](http://redbeanphp.com)
 - [Bootstrap](http://getbootstrap.com/)
-- [HandleBar](http://handlebarsjs.com/)
+- [HandleBars](http://handlebarsjs.com/)
 
 
 ###Note on choosen PHP framework
