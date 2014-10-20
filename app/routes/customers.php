@@ -5,12 +5,13 @@ $app->get('/customers', function () {
 });
 
 $app->post('/customers', function() use ($app) {
-    if (empty($app->request->post('name'))) {
+    $name = $app->request->post('name');
+    if (empty($name)) {
         //Bad request
         $app->response->setStatus(400);
     } else {
         $customer = R::dispense('customers');
-        $customer->name = $app->request->post('name');
+        $customer->name = $name;
         $id = R::store($customer);
         echo json_encode(array('id' => $id));
     }
