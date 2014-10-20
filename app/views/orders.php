@@ -26,7 +26,7 @@
             <h1>CheezzyPizza: We only sell the cheezziest!!</h1>
             <br/>
             <h4>Who's the customer?</h4>
-            <form role="form" method="post">
+            <form role="form" id="add_pizza_form">
                 <div id="customers_dd">
                     <select class="form-control" name="id_customer" id="id_customer" disabled="disabled">
                         <option>Loading...</option>
@@ -44,43 +44,50 @@
                         <input type="checkbox" name="has_pepperoni" id="has_pepperoni"> Pepperoni
                     </label>
                 </div>
-                <button type="submit" id="submitOrder" class="btn btn-default" disabled="disabled">Submit</button>
+                <button type="button" id="order_pizza_submit" class="btn btn-primary">Order Pizza</button>
             </form>
             <hr/>
             <h3>Current Pizza Orders</h3>
             <div id="pizzas_table"></div>
-
           </div>
           <div class="col-md-4"></div>
         </div>
     </div>
 
 
-<!-- Small modal -->
-
-
-    <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <!-- Add customer modal -->
+    <div id="customer_modal" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-sm">
         <div class="modal-content">
-          ...
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Add New Customer</h4>
+            </div>
+            <div class="modal-body">
+                <form role="form" id="add_customer_form">
+                    <div class="form-group">
+                        <input type="text" name="name" id="customer_name" class="form-control" placeholder="Enter name">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" id="add_customer_submit" class="btn btn-primary">Add Customer</button>
+            </div>
         </div>
       </div>
     </div>
 
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/cheezzy.js"></script>
-
-    <script id="customers" type="x-tmpl-mustache">
+    <script id="customers" type="x-tmpl-handlebars">
         <select class="form-control" name="id_customer" id="id_customer">
+            <option value="">Select one</option>
             {{#each customers}}
-                <option value="{{id_customer}}">{{name}}</option>
+                <option value="{{id}}">{{name}}</option>
             {{/each}}
         </select>
         <button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Add New</button>
     </script>
-    <script id="pizzas" type="x-tmpl-mustache">
+    <script id="pizzas" type="x-tmpl-handlebars">
         <table class="table table-striped table-bordered">
             <thead>
                 <th>Customer</th>
@@ -100,5 +107,9 @@
             </tbody>
         </table>
     </script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/cheezzy.js"></script>
   </body>
 </html>

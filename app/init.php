@@ -19,6 +19,9 @@ if (ENV == 'production') {
     $pass = '';
 }
 R::setup("mysql:host={$hostname};port={$port};dbname=cheezzypizza", $user,$pass);
+R::freeze(true); //Ensure RedBean won't mess with the schema
 
+
+$app->response->headers->set('Content-Type', 'application/json');
 
 return $app;
