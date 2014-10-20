@@ -8,11 +8,10 @@ $app->post('/customers', function() use ($app) {
     if (empty($app->request->post('name'))) {
         //Bad request
         $app->response->setStatus(400);
-        return;
+    } else {
+        $customer = R::dispense('customers');
+        $customer->name = $app->request->post('name');
+        $id = R::store($customer);
+        echo json_encode(array('id' => $id));
     }
-
-    $customer = R::dispense('customers');
-    $customer->name = $app->request->post('name');
-    $id = R::store($customer);
-    echo json_encode(array('id' => $id));
 });

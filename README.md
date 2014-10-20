@@ -27,7 +27,7 @@ The rest web service will consists of two endpoints:
 
 customers   | pizzas
 ----------------------------
-id_customer | id_pizza
+id          | id
 name        | id_customer
             | has_tomato_sauce
             | has_cheese
@@ -46,7 +46,7 @@ name        | id_customer
 
 ###Note on choosen PHP framework
 
-I haven't been doing a lot of PHP lately and I wanted something small that people currently use. I've looked into Slim, Silex, Laravel and Symphony has theses were the one I am hearing the most about. The last two were behemoth for the task at hand and I ended up choosing Slim because I like the name :). Most of my experience of the last 2 years was spent working with [Google Go](http://golang.org) and a legacy app written with Zend Framework (God help me).
+I haven't been doing a lot of PHP lately and I wanted something small that people currently use. I've looked into Slim, Silex, Laravel and Symphony as theses were the one I am hearing the most about. The last two were behemoth for the task at hand and I ended up choosing Slim because I like the name :). Most of my experience of the last 2 years was spent working with [Google Go](http://golang.org) and a legacy app written with Zend Framework so this was also a bit of a refresher on some current php tools.
 
 
 ##What I would do given more time
