@@ -44,6 +44,9 @@
                         <input type="checkbox" name="has_pepperoni" id="has_pepperoni"> Pepperoni
                     </label>
                 </div>
+                <br>
+                <p id="error_toppings" style="color:#ffffff;background-color:#ff0000;display:none;">Please select at least one topping</p>
+                <p id="error_customer" style="color:#ffffff;background-color:#ff0000;display:none;">Please select a customer</p>
                 <button type="button" id="order_pizza_submit" class="btn btn-primary">Order Pizza</button>
             </form>
             <hr/>
@@ -69,6 +72,7 @@
                         <input type="text" name="name" id="customer_name" class="form-control" placeholder="Enter name">
                     </div>
                 </form>
+                <p id="error_add_customer" style="color:#ffffff;background-color:#ff0000;display:none;">Please enter a name</p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

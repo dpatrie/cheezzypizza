@@ -1,10 +1,18 @@
 <?php
 $app->get('/pizzas', function () {
-    $data = R::getAll("SELECT * FROM pizzas p JOIN customers c ON p.id_customer = c.id ");
+    $data = R::getAll("SELECT * FROM pizzas p JOIN customers c ON p.id_customer = c.id ORDER BY p.id DESC");
     echo json_encode(array('pizzas' => $data));
 });
 
 $app->post('/pizzas', function() use ($app) {
+    if (empty($app->request->post('id_customer'))) {
+        //TODO: Validate that this customer really exists....
+        //Bad request
+        $app->response->setStatus(400);
+        return;
+    }
+
+
     $pizza = R::dispense('pizzas');
     $pizza->id_customer = $app->request->post('id_customer');
     $pizza->has_tomato_sauce = ($app->request->post('has_tomato_sauce') ? 1 : 0);

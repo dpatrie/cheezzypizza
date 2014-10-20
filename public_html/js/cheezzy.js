@@ -26,13 +26,33 @@ $( document ).ready(function() {
     }
 
     $('#add_customer_submit').click(function() {
-        $.post('/customers', $('#add_customer_form').serialize(), function(data) {
-            loadCustomersDD(data.id);
-            $('#customer_modal').modal('hide');
-        }, 'json');
+        $('#error_add_customer').hide();
+
+        if ($('#customer_name').val().length > 0) {
+            $.post('/customers', $('#add_customer_form').serialize(), function(data) {
+                loadCustomersDD(data.id);
+                $('#customer_name').val('');
+                $('#customer_modal').modal('hide');
+            }, 'json');
+        } else {
+            $('#error_add_customer').show();
+        }
     });
 
     $('#order_pizza_submit').click(function() {
+        $('#error_customer').hide();
+        $('#error_toppings').hide();
+
+        if ($('#id_customer').val() == '') {
+            $('#error_customer').show();
+            return;
+        }
+
+        if ($(':checkbox:checked').length == 0) {
+            $('#error_toppings').show();
+            return;
+        }
+
         $.post('/pizzas', $('#add_pizza_form').serialize(), function(data) {
             renderPizzasTable();
         }, 'json');

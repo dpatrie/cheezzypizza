@@ -5,6 +5,12 @@ $app->get('/customers', function () {
 });
 
 $app->post('/customers', function() use ($app) {
+    if (empty($app->request->post('name'))) {
+        //Bad request
+        $app->response->setStatus(400);
+        return;
+    }
+
     $customer = R::dispense('customers');
     $customer->name = $app->request->post('name');
     $id = R::store($customer);
