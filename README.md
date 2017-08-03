@@ -1,16 +1,16 @@
-#ChezzyPizza
+# ChezzyPizza
 
-##Demo site
+## Demo site
 
 http://cheezzypizza-dpatrie.rhcloud.com
 
 OpenShift is a PaaS akin to Heroku built by Red Hat. They offer 3 free "gears" which represent a processing unit (akin to dynos on Heroku).
 
-##Goal
+## Goal
 
 Write a pizza order form. As an extra, provide a list of all pizza ordered.
 
-##Architecture
+## Architecture
 
 Front end will consist of one route:
 
@@ -23,7 +23,7 @@ The rest web service will consists of two endpoints:
 - /customers
 - /pizzas
 
-##Database structure
+## Database structure
 
 | customers  | pizzas           |
 | -----------|------------------|
@@ -34,7 +34,7 @@ The rest web service will consists of two endpoints:
 |            | has_pepperoni    |
 
 
-##Technology used
+## Technology used
 
 - [OpenShift](https://www.openshift.com).
 - LAMP (PHP 5.4 & MySQL 5.5)
@@ -44,12 +44,12 @@ The rest web service will consists of two endpoints:
 - [HandleBars](http://handlebarsjs.com/)
 
 
-###Note on choosen PHP framework
+### Note on choosen PHP framework
 
 I haven't been doing a lot of PHP lately and I wanted something small that people currently use. I've looked into Slim, Silex, Laravel and Symphony as theses were the one I am hearing the most about. The last two were behemoth for the task at hand and I ended up choosing Slim because I like the name :). Most of my experience of the last 2 years was spent working with [Google Go](http://golang.org) and a legacy app written with Zend Framework so this was also a bit of a refresher on some current php tools.
 
 
-##What I would do given more time
+## What I would do given more time
 
 - Doing a many to many relationship for the pizzas and the toppings...to remove the sadness :).
 - Build some actual models. There was not a lot of business logic and time was short so I skipped...
